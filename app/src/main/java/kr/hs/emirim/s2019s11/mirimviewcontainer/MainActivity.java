@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
         btnNext.setOnClickListener(btnListener);
     }
 
-    View.OnClickListener btnListener = new View.OnClickListener() {
+    // 버튼을 누르면 넘어감
+    /*View.OnClickListener btnListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
@@ -30,6 +31,21 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.btn_next:
                     flipper.showNext();
+                    break;
+            }
+        }
+    };*/
+    // 1초 간격으로 자동으로 넘어감
+    View.OnClickListener btnListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.btn_prev:
+                    flipper.setFlipInterval(1000);
+                    flipper.startFlipping();
+                    break;
+                case R.id.btn_next:
+                    flipper.stopFlipping();
                     break;
             }
         }
